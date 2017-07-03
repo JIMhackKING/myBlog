@@ -21,7 +21,7 @@ ROOT = os.getcwd()
 
 @error(404)
 def page404(error):
-    return template("404.html",
+    return template("404",
                 page_name = "404",
                 )
 
@@ -41,7 +41,7 @@ def assets(filepath):
 @route("/admin/")
 def admin_login():
     wrong = True if request.query.get("msg") else False
-    return template("index.html", 
+    return template("admin", 
                 page_name = "admin",
                 wrong=wrong,
                 )
@@ -72,19 +72,26 @@ def login_success():
 # 增加动态URL, ps: /blog/DHC/
 @route("/")
 def blog():
-    return template("pure-layout-blog.html",
+    return template("pure-layout-blog",
                 page_name = "pure-layout-blog",
                 )
 
 @route("/", method="POST")
 def blog_logined():
-    return template("pure-layout-blog.html",
+    return template("pure-layout-blog",
                 page_name = "pure-layout-blog",
                 )
 
 @route("/login/")
 def blog_login():
-    return template("blog-login.html",
-                page_name = "blog-login")
+    return template("blog-login",
+                page_name = "blog-login",
+                )
+
+@route("/version/")
+def version_information():
+    return template("version-information",
+                page_name = "version-information",
+                )
 
 application = default_app()
