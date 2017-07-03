@@ -1,0 +1,45 @@
+body, html { font-size: 100%; 	padding: 0; margin: 0;}
+
+/* Reset */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+body{
+	background:url("/images/454bea3611aaa7f24e981bd77a2e5671.jpg");
+	background-size: cover; /*背景图尺寸不随浏览器缩放而变化, 而且可以显示整个图片*/
+	-webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari */ 
+	-o-background-size: cover;/* 兼容Opera */ 
+	color: #D5D6E2;
+	font-weight: 500;
+	font-size: 1.05em;
+	font-family: "Microsoft YaHei","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif;
+}
+
+@media screen and (max-width: 800px){
+	body{
+	background:url("/images/b82163d21285d7ba2f4b16de44056b8a.jpg");
+	color: #D5D6E2;
+	font-weight: 500;
+	font-size: 1.05em;
+	font-family: "Microsoft YaHei","Segoe UI", "Lucida Grande", Helvetica, Arial,sans-serif;
+	}
+}
+
+a{ color: rgba(255, 255, 255, 0.6);outline: none;text-decoration: none;-webkit-transition: 0.2s;transition: 0.2s;}
+a:hover,a:focus{color:#74777b;text-decoration: none;}
