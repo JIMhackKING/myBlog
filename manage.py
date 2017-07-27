@@ -4,6 +4,7 @@ from script import app
 import sys
 import getpass
 import threading
+import os
 
 # global settings
 help_doc = """
@@ -18,6 +19,8 @@ Usage: python manage.py [args]\n
 
 DEBUG = "--debug"
 SERVER = "--server"
+
+RELOAD = True
 
 # print the help document
 if len(sys.argv) < 2:
@@ -34,13 +37,13 @@ else:
 		# Run server with debug mode
 		if DEBUG in sys.argv[2:]:
 			if SERVER in sys.argv[2:]:
-				app.application.run(port=port, server="paste", debug=True)
+				app.application.run(port=port, server="paste", debug=True, reloader=RELOAD)
 			else:
-				app.application.run(port=port, debug=True)
+				app.application.run(port=port, debug=True, reloader=RELOAD)
 		elif SERVER in sys.argv[2:]:
-			app.application.run(port=port, server="paste")
+			app.application.run(port=port, server="paste", reloader=RELOAD)
 		else:
-			app.application.run(port=port)
+			app.application.run(port=port, reloader=RELOAD)
 
 	elif sys.argv[1] == "createsuperuser":
 		username = raw_input("Enter the username: ")
@@ -48,5 +51,8 @@ else:
 		password = getpass.getpass("Enter the password: ")
 		print setting.create_super_user(username,password)
 
+	elif sys.argv[1] == "shell":
+		os.system("python")
+			
 	else:
 		print help_doc
