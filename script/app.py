@@ -19,6 +19,11 @@ import os
 ASSETS = "/assets/"
 ROOT = os.getcwd()
 
+@route('/my_ip')
+def my_ip():
+    ip = request['REMOTE_ADDR']
+    return '<h1>Your ip address is: <font color="red">%s</font></h1>' %ip
+    
 @error(404)
 def page404(error):
     return template("404",
@@ -93,5 +98,12 @@ def version_information():
     return template("version-information",
                 page_name = "version-information",
                 )
+
+"""
+改进计划：
+	· 为版本信息页创建模板，将各版本信息做成一块，在后台管理系统里面添加版本信息管理功能，每次版本更新只需要在后台管理系统进行编辑和添加。
+	· 管理员可在后台管理系统编辑博客，在博客主页用户可以编辑博客
+	· 增加精华、排行等功能
+"""
 
 application = default_app()

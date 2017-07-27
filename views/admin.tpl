@@ -3,7 +3,7 @@
 <html lang="zh_Hans" >
 <head>
 <meta charset="utf-8">
-<title>登录 | Django 站点管理员</title>
+<title>登录 | 站点管理员</title>
 <link rel="stylesheet" type="text/css" href="/{{ page_name }}/css/base.css" />
 <link rel="stylesheet" type="text/css" href="/{{ page_name }}/css/login.css" />
   <link rel="shortcut icon" type="icon/png" href="favicon.ico">
